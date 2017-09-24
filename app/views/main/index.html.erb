@@ -1,7 +1,7 @@
 <main class="container">
   <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
-      <% @posts.try(:limit, 5).try(:each) do |post| %>
+      <% @posts.try(:first, 5).try(:each) do |post| %>
         <div class="panel panel-default">
           <div class="panel-body">
             <p class="text-muted"><%= DateTime.parse(post['created_time']).strftime("%e %B %Y, %H:%M") %></p>
@@ -27,12 +27,6 @@
           <% end %>
         </div>
       <% end %>
-
-
     </div>
   </div>
 </main>
-
-
-<pre><%= @user.inspect %></pre>
-<pre><%= @posts.inspect %></pre>
