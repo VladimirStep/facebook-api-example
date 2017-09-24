@@ -6,8 +6,8 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
         <% if @user %>
-          <li><%= image_tag @user['picture']['data']['url'] %></li>
-          <li><%= @user['name'] %></li>
+          <li class="user-header-icon" style="background-image: url(<%= @user['picture']['data']['url'] %>)"></li>
+          <li><p class="navbar-text"><%= @user['name'] %></p></li>
           <li><%= link_to 'Logout', logout_path %></li>
         <% else @user %>
           <li><%= link_to 'Login', '/auth/facebook' %></li>
