@@ -5,7 +5,10 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <p class="text-muted"><%= DateTime.parse(post['created_time']).strftime("%e %B %Y, %H:%M") %></p>
-            <p class="lead"><%= post['message'] %></p>
+            <%= image_tag post['picture'] if post['picture'] %>
+            <% if post['message'] %>
+              <p class="lead"><%= post['message'] %></p>
+            <% end %>
             <ul class="shared text-muted">
               <li><%= post['likes'].try(:count) || 0 %></li>
               <li><%= post['shares']['count'] || 0 %></li>
