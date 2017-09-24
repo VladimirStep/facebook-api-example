@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'main#index'
   resources :main, only: [:index]
   post '/auth/developer/callback', to: 'sessions#create'
-  post '/auth/facebook/callback', to: 'sessions#create'
+  get '/auth/facebook/callback', to: 'sessions#create'
   get '/auth/failure', to: 'main#auth_fail'
   get '/logout', to: 'sessions#destroy', as: :logout
 end
