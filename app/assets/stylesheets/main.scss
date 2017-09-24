@@ -11,9 +11,17 @@ header {
 }
 ul.shared {
   list-style: none;
+  margin-top: 5px;
   padding-left: 0;
   li {
     display: inline;
+    &.icons {
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+  }
+  .count {
+    padding: 0 3px;
   }
 }
 p.comment {

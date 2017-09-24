@@ -10,8 +10,8 @@
               <p class="lead"><%= post['message'] %></p>
             <% end %>
             <ul class="shared text-muted">
-              <li><span class="glyphicon glyphicon-thumbs-up"></span><%= post['likes'] ? post['likes'].try(:count) : 0 %></li>
-              <li><span class="glyphicon glyphicon-share-alt"></span><%= post['shares'] ? post['shares'].try(:[], 'count') : 0 %></li>
+              <li class="icons"><span class="glyphicon glyphicon-thumbs-up"></span><span class="count"><%= post['likes'] ? post['likes'].try(:count) : 0 %></span></li>
+              <li class="icons"><span class="glyphicon glyphicon-share-alt"></span><span class="count"><%= post['shares'] ? post['shares'].try(:[], 'count') : 0 %></span></li>
             </ul>
           </div>
           <% if post['comments'] %>
