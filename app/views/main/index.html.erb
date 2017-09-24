@@ -10,19 +10,21 @@
               <p class="lead"><%= post['message'] %></p>
             <% end %>
             <ul class="shared text-muted">
-              <li><%= post['likes'].try(:count) || 0 %></li>
-              <li><%= post['shares']['count'] || 0 %></li>
+              <li><%= post['likes'] ? post['likes'].try(:count) : 0 %></li>
+              <li><%= post['shares'] ? post['shares'].try(:[], 'count') : 0 %></li>
             </ul>
           </div>
-          <div class="panel-footer">
-            <% post['comments']['data'].try(:each) do |comment| %>
-              <ul class="shared text-muted">
-                <li><%= comment['from']['name'] %></li>
-                <li><%= DateTime.parse(comment['created_time']).strftime("%e %B %Y, %H:%M") %></li>
-              </ul>
-              <p><%= comment['message'] %></p>
-            <% end %>
-          </div>
+          <% if post['comments'] %>
+            <div class="panel-footer">
+              <% post['comments']['data'].try(:each) do |comment| %>
+                <ul class="shared text-muted">
+                  <li><%= comment['from']['name'] %></li>
+                  <li><%= DateTime.parse(comment['created_time']).strftime("%e %B %Y, %H:%M") %></li>
+                </ul>
+                <p><%= comment['message'] %></p>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       <% end %>
 
