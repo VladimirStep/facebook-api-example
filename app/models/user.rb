@@ -7,8 +7,7 @@ class User
       batch_api.get_object('me', { fields: %w(id name picture)})
       batch_api.get_connection('me',
                                'posts',
-                               { limit: 5,
-                                 fields: %w(id message created_time picture likes comments shares)})
+                               { fields: %w(id message created_time picture likes comments shares)} )
     end
     result
   rescue Koala::Facebook::AuthenticationError
